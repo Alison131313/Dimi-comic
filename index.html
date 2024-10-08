@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadows of Resolve</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Shadows of Resolve</h1>
+        <p id="narration">Shadows are closing in. You need to act fast!</p>
+
+        <div id="game-status">
+            <p>Shadows Remaining: <span id="shadows-remaining">100</span></p>
+            <p>Your Health: <span id="player-health">100</span></p>
+        </div>
+
+        <div id="actions">
+            <button onclick="useShield()">Use Shield of Resolve</button>
+            <button onclick="useAmulet()">Use Wolfe Amulet</button>
+            <button onclick="transform()">Wolf Transformation</button>
+        </div>
+
+        <p id="game-result"></p>
+    </div>
+
+    <script src="game.js"></script>
+</body>
