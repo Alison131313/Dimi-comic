@@ -1,6 +1,6 @@
 let gameState = {
     shadows: 100,
-    playerHealth: 100,
+    playerHealth: 0,
 };
 
 // Function to update the text shown on the page (narration)
