@@ -12,7 +12,13 @@ function updateNarration(text) {
 function endGame(result) {
     document.getElementById('game-result').innerText = result;
     document.getElementById('actions').style.display = 'none'; // Hide action buttons once game ends
-    document.getElementById('dimitri').src = "images/victory.jpg"; // Change image to victory
+
+    // Show victory or defeat image based on result
+    if (result.includes("Defeat")) {
+        document.getElementById('dimitri').src = "images/defeat.jpg"; // Change image to defeat
+    } else {
+        document.getElementById('dimitri').src = "images/victory.jpg"; // Change image to victory
+    }
 }
 
 // Shield of Resolve action
@@ -25,9 +31,9 @@ function useShield() {
         }
     }
     if (gameState.playerHealth > 0) {
-        gameState.playerHealth -= 10; // Minor health penalty for using the shield
+        gameState.playerHealth -= 10; // Deduct health when using the shield
     }
-    checkGameState();
+    checkGameState(); // Check if the player has lost
 }
 
 // Wolfe Amulet action
@@ -56,9 +62,10 @@ function transform() {
 function checkGameState() {
     if (gameState.playerHealth <= 0) {
         endGame('Defeat... You were consumed by the shadows.');
-        document.getElementById('dimitri').src = "images/defeat.jpg"; // Change image to defeat
+        document.getElementById('dimitri').src = "images/defeat.jpg"; // Show defeat image
+    } else {
+        updateStatus();
     }
-    updateStatus();
 }
 
 // Function to update shadow count and player health status on the screen
